@@ -1,22 +1,26 @@
 using Ui;
 using Game;
 using Profile;
+using Tool.Analytics;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 internal class MainController : BaseController
 {
     private readonly Transform _placeForUi;
     private readonly ProfilePlayer _profilePlayer;
+    private AnalyticsManager _analyticsManager;
 
     private MainMenuController _mainMenuController;
     private GameController _gameController;
     private SettingsController _settingsController;
 
 
-    public MainController(Transform placeForUi, ProfilePlayer profilePlayer)
+    public MainController(Transform placeForUi, ProfilePlayer profilePlayer, AnalyticsManager analyticsManager)
     {
         _placeForUi = placeForUi;
         _profilePlayer = profilePlayer;
+        _analyticsManager = analyticsManager;
 
         _profilePlayer.CurrentState.SubscribeOnChange(OnChangeGameState);
         OnChangeGameState(_profilePlayer.CurrentState.Value);
@@ -46,7 +50,7 @@ internal class MainController : BaseController
                 _mainMenuController?.Dispose();
                 break;
             case GameState.Game:
-                _gameController = new GameController(_profilePlayer);
+                _gameController = new GameController(_profilePlayer, _analyticsManager);
                 _mainMenuController?.Dispose();
                 break;
             default:
