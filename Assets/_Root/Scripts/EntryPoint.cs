@@ -1,5 +1,5 @@
 using Profile;
-using Tool.Analytics;
+using Services.Analytics;
 using UnityEngine;
 
 internal class EntryPoint : MonoBehaviour

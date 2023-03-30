@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Tool.Analytics
+namespace Services.Analytics
 {
     internal class UnityAnalyticsService : IAnalyticsService
     {

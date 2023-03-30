@@ -3,7 +3,7 @@ using Game.InputLogic;
 using Game.TapeBackground;
 using Profile;
 using Tool;
-using Tool.Analytics;
+using Services.Analytics;
 
 namespace Game
 {

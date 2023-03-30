@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Tool.Analytics
+namespace Services.Analytics
 {
     internal class AnalyticsManager: MonoBehaviour
     {

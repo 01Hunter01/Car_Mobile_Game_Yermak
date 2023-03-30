@@ -1,7 +1,7 @@
 using Ui;
 using Game;
 using Profile;
-using Tool.Analytics;
+using Services.Analytics;
 using UnityEngine;
 using UnityEngine.Analytics;
 
