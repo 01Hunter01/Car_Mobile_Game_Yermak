@@ -8,9 +8,11 @@ namespace Ui
     {
         [SerializeField] private Button _buttonStart;
         [SerializeField] private Button _buttonSettings;
+        [SerializeField] private Button _buttonRewardedVideo;
 
         private UnityAction _startGameCache;
         private UnityAction _settingsCache;
+        private UnityAction _rewardedVideoCache;
 
         public void InitStartGame(UnityAction startGame)
         {
@@ -24,10 +26,18 @@ namespace Ui
             _buttonSettings.onClick.AddListener(_settingsCache);
         }
 
+        public void InitRewardedVideo(UnityAction rewardedVideo)
+        {
+            _rewardedVideoCache = rewardedVideo;
+            _buttonRewardedVideo.onClick.AddListener(rewardedVideo);
+        }
+
         public void OnDestroy()
         {
             _buttonStart.onClick.RemoveListener(_startGameCache);
             _buttonSettings.onClick.RemoveListener(_settingsCache);
+            _buttonRewardedVideo.onClick.RemoveListener(_rewardedVideoCache);
+
         } 
     }
 }
