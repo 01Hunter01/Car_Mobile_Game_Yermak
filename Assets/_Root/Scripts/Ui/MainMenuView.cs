@@ -9,10 +9,12 @@ namespace Ui
         [SerializeField] private Button _buttonStart;
         [SerializeField] private Button _buttonSettings;
         [SerializeField] private Button _buttonRewardedVideo;
+        [SerializeField] private Button _buttonIAP;
 
         private UnityAction _startGameCache;
         private UnityAction _settingsCache;
         private UnityAction _rewardedVideoCache;
+        private UnityAction _iapCache;
 
         public void InitStartGame(UnityAction startGame)
         {
@@ -31,6 +33,13 @@ namespace Ui
             _rewardedVideoCache = rewardedVideo;
             _buttonRewardedVideo.onClick.AddListener(rewardedVideo);
         }
+        
+        public void InitPurchase(UnityAction purchase)
+        {
+            _iapCache = purchase;
+            _buttonIAP.onClick.AddListener(_iapCache);
+        }
+
 
         public void OnDestroy()
         {
