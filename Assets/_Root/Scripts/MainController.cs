@@ -20,8 +20,8 @@ internal class MainController : BaseController
     private SettingsController _settingsController;
 
 
-    public MainController(Transform placeForUi, ProfilePlayer profilePlayer, 
-        AnalyticsManager analyticsManager, UnityAdsService unityAdsService, IAPService iapService)
+    public MainController(Transform placeForUi, ProfilePlayer profilePlayer, AnalyticsManager analyticsManager,
+        UnityAdsService unityAdsService, IAPService iapService)
     {
         _placeForUi = placeForUi;
         _profilePlayer = profilePlayer;

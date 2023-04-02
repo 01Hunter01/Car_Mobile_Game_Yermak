@@ -46,7 +46,7 @@ namespace Ui
             _buttonStart.onClick.RemoveListener(_startGameCache);
             _buttonSettings.onClick.RemoveListener(_settingsCache);
             _buttonRewardedVideo.onClick.RemoveListener(_rewardedVideoCache);
-
+            _buttonIAP.onClick.RemoveListener(_iapCache);
         } 
     }
 }

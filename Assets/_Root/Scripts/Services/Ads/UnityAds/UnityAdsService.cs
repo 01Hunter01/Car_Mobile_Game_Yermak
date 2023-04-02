@@ -6,6 +6,20 @@ namespace Services.Ads.UnityAds
 {
     internal class UnityAdsService : MonoBehaviour, IUnityAdsInitializationListener, IAdsService
     {
+        private static UnityAdsService _instance;
+
+        public static UnityAdsService Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new UnityAdsService();
+                }
+                return _instance;
+            }
+        }
+        
         [Header("Components")]
         [SerializeField] private UnityAdsSettings _settings;
 

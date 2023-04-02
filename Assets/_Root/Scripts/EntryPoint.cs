@@ -3,7 +3,6 @@ using Services.Ads.UnityAds;
 using Services.Analytics;
 using Services.IAP;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 internal class EntryPoint : MonoBehaviour
 {
@@ -17,11 +16,10 @@ internal class EntryPoint : MonoBehaviour
     
     private MainController _mainController;
 
-
     private void Start()
     {
         var profilePlayer = new ProfilePlayer(SpeedCar, InitialState);
-        _mainController = new MainController(_placeForUi, profilePlayer,_analyticsManager, _unityAdsService, _iapService);
+        _mainController = new MainController(_placeForUi, profilePlayer, _analyticsManager, _unityAdsService, _iapService);
         
         if(_unityAdsService.IsInitialized) OnAdsInitialized();
         else _unityAdsService.Initialized.AddListener(OnAdsInitialized);
