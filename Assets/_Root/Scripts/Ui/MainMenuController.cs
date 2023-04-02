@@ -1,4 +1,7 @@
 using Profile;
+using Services.Ads.UnityAds;
+using Services.Analytics;
+using Services.IAP;
 using Tool;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -10,14 +13,23 @@ namespace Ui
         private readonly ResourcePath _resourcePath = new ResourcePath("Prefabs/MainMenu");
         private readonly ProfilePlayer _profilePlayer;
         private readonly MainMenuView _view;
+        private readonly UnityAdsService _unityAdsService;
+        private readonly IAPService _iapService;
+        private readonly AnalyticsManager _analyticsManager;
 
-
-        public MainMenuController(Transform placeForUi, ProfilePlayer profilePlayer)
+        public MainMenuController(Transform placeForUi, ProfilePlayer profilePlayer, AnalyticsManager analyticsManager, 
+            UnityAdsService unityAdsService, IAPService iapService)
         {
             _profilePlayer = profilePlayer;
+            _analyticsManager = analyticsManager;
+            _unityAdsService = unityAdsService;
+            _iapService = iapService;
+
             _view = LoadView(placeForUi);
             _view.InitStartGame(StartGame);
             _view.InitSettings(SettingsMenu);
+            _view.InitRewardedVideo(OnRewardedVideoPlay);
+            _view.InitPurchase(OnPurchaseBuy);
         }
 
 
@@ -35,5 +47,14 @@ namespace Ui
         
         private void SettingsMenu() =>
             _profilePlayer.CurrentState.Value = GameState.Settings;
+        
+        private void OnRewardedVideoPlay() => _unityAdsService.RewardedPlayer.Play();
+        
+        private void OnPurchaseBuy()
+        {
+            _iapService.Buy("extra_coins");
+            _analyticsManager.OnPurchase("extra_coins", 1.99m, "USD");
+        } 
+
     }
 }
