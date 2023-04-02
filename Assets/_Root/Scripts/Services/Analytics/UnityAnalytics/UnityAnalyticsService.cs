@@ -9,5 +9,8 @@ namespace Services.Analytics
 
         public void SendEvent(string eventName, Dictionary<string, object> eventData) => 
             UnityEngine.Analytics.Analytics.CustomEvent(eventName, eventData);
+
+        public void SendOnPurchaseEvent(string productId, decimal amount, string currency) => 
+            UnityEngine.Analytics.Analytics.Transaction(productId, amount, currency);
     }
 }

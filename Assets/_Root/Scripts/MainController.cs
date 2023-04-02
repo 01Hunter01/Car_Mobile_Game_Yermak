@@ -48,7 +48,8 @@ internal class MainController : BaseController
         switch (state)
         {
             case GameState.Start:
-                _mainMenuController = new MainMenuController(_placeForUi, _profilePlayer, _unityAdsService, _iapService);
+                _mainMenuController = new MainMenuController(_placeForUi, _profilePlayer, 
+                    _analyticsManager, _unityAdsService, _iapService);
                 _settingsController?.Dispose();
                 _gameController?.Dispose();
                 break;
