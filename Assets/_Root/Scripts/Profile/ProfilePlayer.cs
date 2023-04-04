@@ -1,3 +1,4 @@
+using Features.Inventory;
 using Game.Car;
 using Tool;
 
@@ -7,6 +8,7 @@ namespace Profile
     {
         public readonly SubscriptionProperty<GameState> CurrentState;
         public readonly CarModel CurrentCar;
+        public readonly InventoryModel Inventory;
 
 
         public ProfilePlayer(float speedCar, GameState initialState) : this(speedCar)
@@ -18,6 +20,7 @@ namespace Profile
         {
             CurrentState = new SubscriptionProperty<GameState>();
             CurrentCar = new CarModel(speedCar);
+            Inventory = new InventoryModel();
         }
     }
 }
