@@ -11,15 +11,15 @@ namespace Profile
         public readonly InventoryModel Inventory;
 
 
-        public ProfilePlayer(float speedCar, GameState initialState) : this(speedCar)
+        public ProfilePlayer(float speedCar, float jumpHeight, GameState initialState) : this(speedCar, jumpHeight)
         {
             CurrentState.Value = initialState;
         }
 
-        public ProfilePlayer(float speedCar)
+        private ProfilePlayer(float speedCar, float jumpHeight)
         {
             CurrentState = new SubscriptionProperty<GameState>();
-            CurrentCar = new CarModel(speedCar);
+            CurrentCar = new CarModel(speedCar, jumpHeight);
             Inventory = new InventoryModel();
         }
     }

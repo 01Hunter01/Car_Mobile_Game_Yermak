@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc7c0900b45e46d4bd60c41ef3e0893a, type: 3}
-  m_Name: AbilityItemConfig
+  m_Name: GunAbility
   m_EditorClassIdentifier: 
   _itemConfig: {fileID: 11400000, guid: b597b6b04f8d34d0bb36337f81f45ec0, type: 2}
   <Type>k__BackingField: 1
