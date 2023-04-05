@@ -15,11 +15,17 @@ namespace Features.AbilitySystem
 
         protected override string GetKey(AbilityItemConfig config) => config.Id;
 
-        protected override IAbility CreateItem(AbilityItemConfig config) =>
-            config.Type switch
+        protected override IAbility CreateItem(AbilityItemConfig config)
+        {
+            switch (config.Type)
             {
-                AbilityType.Gun => new GunAbility(config),
-                _ => StubAbility.Default
-            };
+                case AbilityType.Gun:
+                    return new GunAbility(config);
+                case AbilityType.Jump:
+                    return new JumpAbility(config);
+                default:
+                    return new StubAbility();
+            }
+        }
     }
 }

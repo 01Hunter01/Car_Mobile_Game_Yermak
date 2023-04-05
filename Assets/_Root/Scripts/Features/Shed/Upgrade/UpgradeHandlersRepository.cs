@@ -10,10 +10,6 @@ namespace Features.Shed.Upgrade
     internal class UpgradeHandlersRepository
         : BaseRepository<string, IUpgradeHandler, UpgradeItemConfig>, IUpgradeHandlersRepository
     {
-        private SpeedUpgradeHandler _speedUpgradeHandler;
-        private JumpHeightUpgradeHandler _jumpHeightUpgradeHandler;
-        private StubUpgradeHandler _stubUpgradeHandler;
-        
         public UpgradeHandlersRepository(IEnumerable<UpgradeItemConfig> configs) : base(configs)
         { }
 
@@ -25,14 +21,11 @@ namespace Features.Shed.Upgrade
             switch (config.Type)
             {
                 case UpgradeType.Speed:
-                    _speedUpgradeHandler = new SpeedUpgradeHandler(config.Value);
-                    return _speedUpgradeHandler;
+                    return new SpeedUpgradeHandler(config.Value);
                 case UpgradeType.JumpHeight:
-                    _jumpHeightUpgradeHandler = new JumpHeightUpgradeHandler(config.Value);
-                    return _jumpHeightUpgradeHandler;
+                    return new JumpHeightUpgradeHandler(config.Value);
                 default:
-                    _stubUpgradeHandler = new StubUpgradeHandler();
-                    return _stubUpgradeHandler;
+                    return new StubUpgradeHandler();
             }
         }
     }
