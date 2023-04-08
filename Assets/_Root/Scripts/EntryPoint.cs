@@ -6,10 +6,7 @@ using UnityEngine;
 
 internal class EntryPoint : MonoBehaviour
 {
-    private const float SpeedCar = 15f;
-    private const float JumpHeight = 10f;
-    private const GameState InitialState = GameState.Start;
-
+    [SerializeField] private InitialSettingsConfig _initialSettings;
     [SerializeField] private Transform _placeForUi;
     [SerializeField] private AnalyticsManager _analyticsManager;
     [SerializeField] private UnityAdsService _unityAdsService;
@@ -19,7 +16,7 @@ internal class EntryPoint : MonoBehaviour
 
     private void Start()
     {
-        var profilePlayer = new ProfilePlayer(SpeedCar, JumpHeight, InitialState);
+        var profilePlayer = new ProfilePlayer(_initialSettings.InitialSpeedCar, _initialSettings.InitialJumpHeight, _initialSettings.InitialState);
         _mainController = new MainController(_placeForUi, profilePlayer, _analyticsManager, _unityAdsService, _iapService);
         
         if(_unityAdsService.IsInitialized) OnAdsInitialized();
