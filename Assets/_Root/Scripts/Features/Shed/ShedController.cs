@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Features.Inventory;
+using Features.Inventory.Items;
 using Features.Shed.Upgrade;
 using JetBrains.Annotations;
+using Object = UnityEngine.Object;
 
 namespace Features.Shed
 {
@@ -17,7 +19,10 @@ namespace Features.Shed
     {
         private readonly ResourcePath _viewPath = new ResourcePath("Prefabs/Shed/ShedView");
         private readonly ResourcePath _dataSourcePath = new ResourcePath("Configs/Shed/UpgradeItemConfigDataSource");
+        private readonly ResourcePath _inventoryViewPath = new ("Prefabs/Inventory/InventoryView");
+        private readonly ResourcePath _inventoryDataSourcePath = new ("Configs/Inventory/ItemConfigDataSource");
 
+        
         private readonly ShedView _view;
         private readonly ProfilePlayer _profilePlayer;
         private readonly InventoryController _inventoryController;
@@ -53,10 +58,31 @@ namespace Features.Shed
 
         private InventoryController CreateInventoryController(Transform placeForUi)
         {
-            var inventoryController = new InventoryController(placeForUi, _profilePlayer.Inventory);
+            IInventoryView view = LoadInventoryView(placeForUi);
+            IItemsRepository repository = CreateInventoryRepository();
+            IInventoryModel inventoryModel = _profilePlayer.Inventory;
+            var inventoryController = new InventoryController(view, repository, inventoryModel);
             AddController(inventoryController);
 
             return inventoryController;
+        }
+        
+        private ItemsRepository CreateInventoryRepository()
+        {
+            ItemConfig[] itemConfigs = ContentDataSourceLoader.LoadItemConfigs(_inventoryDataSourcePath);
+            var repository = new ItemsRepository(itemConfigs);
+            AddRepository(repository);
+
+            return repository;
+        }
+
+        private InventoryView LoadInventoryView(Transform placeForUi)
+        {
+            GameObject prefab = ResourcesLoader.LoadPrefab(_inventoryViewPath);
+            GameObject objectView = Object.Instantiate(prefab, placeForUi);
+            AddGameObject(objectView);
+
+            return objectView.GetComponent<InventoryView>();
         }
 
         private ShedView LoadView(Transform placeForUi)

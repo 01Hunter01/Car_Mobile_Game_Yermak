@@ -6,7 +6,7 @@ namespace Features.Inventory
     {
         IReadOnlyList<string> EquippedItems { get; }
         void EquipItem(string item);
-        void UnequipItem(string itemId);
+        void UnEquipItem(string itemId);
         bool IsEquipped(string itemId);
     }
 
@@ -22,7 +22,7 @@ namespace Features.Inventory
                 _equippedItems.Add(itemId);
         }
 
-        public void UnequipItem(string itemId)
+        public void UnEquipItem(string itemId)
         {
             if (IsEquipped(itemId))
                 _equippedItems.Remove(itemId);
