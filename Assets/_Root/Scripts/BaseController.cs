@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Game;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -54,6 +55,9 @@ internal abstract class BaseController : IDisposable
     protected void AddRepository(IRepository repository) =>
         AddDisposable(repository);
 
+    protected void AddContext(BaseContext context) =>
+        AddDisposable(context);
+    
     protected void AddGameObject(GameObject gameObject)
     {
         _gameObjects ??= new List<GameObject>();
