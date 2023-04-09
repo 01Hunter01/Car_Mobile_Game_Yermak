@@ -33,14 +33,6 @@ namespace Game
             analyticsManager.SendGameStartedEvent();
         }
 
-        private AbilityContext CreateAbilityContext(Transform placeForUi, IAbilityActivator abilityActivator)
-        {
-            var abilityContext = new AbilityContext(placeForUi, abilityActivator);
-            AddContext(abilityContext);
-            
-            return abilityContext;
-        }
-
         private CarController CreateCarController()
         {
             var carController = new CarController();
@@ -64,6 +56,14 @@ namespace Game
             AddController(tapeBackgroundController);
 
             return tapeBackgroundController;
+        }
+
+        private AbilityContext CreateAbilityContext(Transform placeForUi, IAbilityActivator abilityActivator)
+        {
+            var abilityContext = new AbilityContext(placeForUi, abilityActivator);
+            AddContext(abilityContext);
+            
+            return abilityContext;
         }
     }
 }
