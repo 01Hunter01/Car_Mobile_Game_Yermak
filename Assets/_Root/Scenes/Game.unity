@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1f1f3a311c471e921b56ebcc0f1a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initialSettings: {fileID: 11400000, guid: bec1e338a286b494d87a536cd5f6c4fc, type: 2}
   _placeForUi: {fileID: 1903552}
   _analyticsManager: {fileID: 1444210076}
   _unityAdsService: {fileID: 470334307}

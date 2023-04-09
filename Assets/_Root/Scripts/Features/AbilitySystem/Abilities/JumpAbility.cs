@@ -1,8 +1,6 @@
-
 using System;
 using UnityEngine;
 using JetBrains.Annotations;
-using Object = UnityEngine.Object;
 
 namespace Features.AbilitySystem.Abilities
 {
@@ -17,9 +15,9 @@ namespace Features.AbilitySystem.Abilities
         
         public void Apply(IAbilityActivator activator)
         {
-            var projectile = Object.Instantiate(_config.Projectile).GetComponent<Rigidbody2D>();
+            var car = activator.ViewGameObject.GetComponent<Rigidbody2D>();
             Vector3 jump = activator.ViewGameObject.transform.up * _config.Value;
-            projectile.AddForce(jump, ForceMode2D.Force);
+            car.AddForce(jump, ForceMode2D.Force);
         }
     }
 }
