@@ -16,7 +16,7 @@ namespace Game
 
         private readonly CarController _carController;
         private readonly InputGameController _inputGameController;
-        private AbilityContext _abilityContext;
+        private readonly AbilityContext _abilityContext;
         private readonly TapeBackgroundController _tapeBackgroundController;
         
         public GameController(Transform placeForUi, ProfilePlayer profilePlayer, AnalyticsManager analyticsManager)

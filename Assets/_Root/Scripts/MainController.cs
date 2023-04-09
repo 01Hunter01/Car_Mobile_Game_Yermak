@@ -18,7 +18,7 @@ internal class MainController : BaseController
 
     private MainMenuController _mainMenuController;
     private SettingsController _settingsController;
-    private ShedController _shedController;
+    private ShedContext _shedContext;
     private GameController _gameController;
     
     public MainController(Transform placeForUi, ProfilePlayer profilePlayer, AnalyticsManager analyticsManager,
@@ -54,7 +54,8 @@ internal class MainController : BaseController
                 _settingsController = new SettingsController(_placeForUi, _profilePlayer);
                 break;
             case GameState.Shed:
-                _shedController = new ShedController(_placeForUi, _profilePlayer);
+                _shedContext = new ShedContext(_placeForUi, _profilePlayer);
+                AddContext(_shedContext);
                 break;
             case GameState.Game:
                 _gameController = new GameController(_placeForUi, _profilePlayer, _analyticsManager);
@@ -65,7 +66,7 @@ internal class MainController : BaseController
     private void DisposeControllers()
     {
         _gameController?.Dispose();
-        _shedController?.Dispose();
+        _shedContext?.Dispose();
         _mainMenuController?.Dispose();
         _settingsController?.Dispose();
     }
