@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Features.AbilitySystem;
+using Features.AbilitySystem.Abilities;
 using Game.Car;
 using Game.InputLogic;
 using Game.TapeBackground;
@@ -11,6 +13,9 @@ namespace Game
 {
     internal class GameController : BaseController
     {
+        private readonly ResourcePath _abilitiesViewPath = new ("Prefabs/Ability/AbilitiesView");
+        private readonly ResourcePath _abilitiesDataSourcePath = new ("Configs/Ability/AbilityItemConfigDataSource");
+        
         private readonly SubscriptionProperty<float> _leftMoveDiff;
         private readonly SubscriptionProperty<float> _rightMoveDiff;
 
@@ -49,20 +54,43 @@ namespace Game
             return inputGameController;
         }
 
-        private AbilitiesController CreateAbilityController(Transform placeForUi, IAbilityActivator abilityActivator)
-        {
-            var abilitiesController = new AbilitiesController(placeForUi, abilityActivator);
-            AddController(abilitiesController);
-
-            return abilitiesController;
-        }
-
         private TapeBackgroundController CreateTapeBackground(SubscriptionProperty<float> leftMoveDiff, SubscriptionProperty<float> rightMoveDiff)
         {
             var tapeBackgroundController = new TapeBackgroundController(leftMoveDiff, rightMoveDiff);
             AddController(tapeBackgroundController);
 
             return tapeBackgroundController;
+        }
+
+        private AbilitiesController CreateAbilityController(Transform placeForUi, IAbilityActivator abilityActivator)
+        {
+            IAbilitiesView view = LoadAbilitiesView(placeForUi);
+            IEnumerable<AbilityItemConfig> abilityItemConfigs = LoadAbilityItemConfigs();
+            IAbilitiesRepository repository = CreateAbilitiesRepository(abilityItemConfigs);
+            var abilitiesController = new AbilitiesController(view, repository, abilityItemConfigs, abilityActivator);
+            AddController(abilitiesController);
+
+            return abilitiesController;
+        }
+        
+        private AbilityItemConfig[] LoadAbilityItemConfigs() =>
+            ContentDataSourceLoader.LoadAbilityItemConfigs(_abilitiesDataSourcePath);
+
+        private AbilitiesRepository CreateAbilitiesRepository(IEnumerable<AbilityItemConfig> abilityItemConfigs)
+        {
+            var repository = new AbilitiesRepository(abilityItemConfigs);
+            AddRepository(repository);
+
+            return repository;
+        }
+
+        private AbilitiesView LoadAbilitiesView(Transform placeForUi)
+        {
+            GameObject prefab = ResourcesLoader.LoadPrefab(_abilitiesViewPath);
+            GameObject objectView = UnityEngine.Object.Instantiate(prefab, placeForUi, false);
+            AddGameObject(objectView);
+
+            return objectView.GetComponent<AbilitiesView>();
         }
     }
 }
