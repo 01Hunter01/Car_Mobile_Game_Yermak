@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using Features.AbilitySystem;
 using Features.AbilitySystem.Abilities;
 using Tool;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Features.AbilitySystem
 {
@@ -11,32 +9,23 @@ namespace Features.AbilitySystem
     {
         private readonly ResourcePath _viewPath = new ("Prefabs/Ability/AbilitiesView");
         private readonly ResourcePath _dataSourcePath = new ("Configs/Ability/AbilityItemConfigDataSource");
-        
-        private readonly AbilitiesView _view;
-        private readonly IAbilitiesRepository _repository;
-        private readonly AbilitiesController _controller;
 
         public AbilityContext(Transform placeForUi, IAbilityActivator abilityActivator)
         {
-            _view = LoadView(placeForUi);
-            var abilityItemConfigs = LoadItemConfigs();
-            _repository = CreateRepository(abilityItemConfigs);
-            _controller = new AbilitiesController(_view, _repository, abilityItemConfigs, abilityActivator);
+            IAbilitiesView view = LoadView(placeForUi);
+            IEnumerable<AbilityItemConfig> abilityItemConfigs = LoadItemConfigs();
+            IAbilitiesRepository repository = CreateRepository(abilityItemConfigs);
+            AbilitiesController controller = new AbilitiesController(view, repository, abilityItemConfigs, abilityActivator);
+            AddController(controller);
         }
-
-        public override void Dispose()
-        {
-            _repository.Dispose();
-            _controller.Dispose();
-            Object.Destroy(_view.gameObject);
-        }
-
+        
         private AbilityItemConfig[] LoadItemConfigs() =>
             ContentDataSourceLoader.LoadAbilityItemConfigs(_dataSourcePath);
 
         private AbilitiesRepository CreateRepository(IEnumerable<AbilityItemConfig> abilityItemConfigs)
         {
             var repository = new AbilitiesRepository(abilityItemConfigs);
+            AddRepository(repository);
             return repository;
         }
 
@@ -44,6 +33,7 @@ namespace Features.AbilitySystem
         {
             GameObject prefab = ResourcesLoader.LoadPrefab(_viewPath);
             GameObject objectView = UnityEngine.Object.Instantiate(prefab, placeForUi, false);
+            AddGameObject(objectView);
             return objectView.GetComponent<AbilitiesView>();
         }
     }
