@@ -4,6 +4,7 @@ namespace BattleScripts
     {
         Money = 0,
         Health = 1,
-        Power = 2
+        Power = 2,
+        CrimeLevel = 3
     }
 }
