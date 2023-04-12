@@ -126,10 +126,10 @@ namespace BattleScripts
             int value = playerData.Value;
             DataType dataType = playerData.DataType;
             TMP_Text textComponent = GetTextComponent(dataType);
-            textComponent.text = $"Player {dataType:F} {value}";
+            textComponent.text = $"Player {dataType:F}: {value}";
 
             int enemyPower = _enemy.CalcPower();
-            _countPowerEnemyText.text = $"Enemy Power {enemyPower}";
+            _countPowerEnemyText.text = $"Enemy Power: {enemyPower}";
         }
 
         private TMP_Text GetTextComponent(DataType dataType) =>

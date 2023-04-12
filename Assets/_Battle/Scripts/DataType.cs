@@ -2,8 +2,8 @@ namespace BattleScripts
 {
     internal enum DataType
     {
-        Money,
-        Health,
-        Power
+        Money = 0,
+        Health = 1,
+        Power = 2
     }
 }

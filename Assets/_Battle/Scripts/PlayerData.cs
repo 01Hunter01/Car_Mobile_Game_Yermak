@@ -26,7 +26,7 @@ namespace BattleScripts
         public void Attach(IEnemy enemy) => _enemies.Add(enemy);
         public void Detach(IEnemy enemy) => _enemies.Remove(enemy);
 
-        protected void Notify()
+        private void Notify()
         {
             foreach (var investor in _enemies)
                 investor.Update(this);
