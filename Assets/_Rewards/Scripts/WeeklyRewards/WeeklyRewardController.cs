@@ -8,7 +8,7 @@ namespace Rewards
 {
     internal class WeeklyRewardController
     {
-        private readonly DailyRewardView _view;
+        private readonly WeeklyRewardView _view;
 
         private List<ContainerSlotRewardView> _slots;
         private Coroutine _coroutine;
@@ -17,7 +17,7 @@ namespace Rewards
         private bool _isInitialized;
 
 
-        public WeeklyRewardController(DailyRewardView view) =>
+        public WeeklyRewardController(WeeklyRewardView view) =>
             _view = view;
 
 

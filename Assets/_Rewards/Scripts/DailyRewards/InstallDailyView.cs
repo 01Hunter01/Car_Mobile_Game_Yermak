@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Rewards
 {
-    internal class InstallView : MonoBehaviour
+    internal class InstallDailyView : MonoBehaviour
     {
         [SerializeField] private DailyRewardView _dailyRewardView;
 

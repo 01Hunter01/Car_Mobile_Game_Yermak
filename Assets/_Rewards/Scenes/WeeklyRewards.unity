@@ -846,7 +846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8467303107109977069, guid: 41eca4c3e573342e38d625a28e480b97, type: 3}
       propertyPath: m_Name
-      value: Conteiner Count Diamond
+      value: Container Count Diamond
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41eca4c3e573342e38d625a28e480b97, type: 3}
@@ -1192,21 +1192,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1534277126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 063f1b92edbd4b8c812689152aa9dc57, type: 3}
+  m_Script: {fileID: 11500000, guid: daa599240315d90428a0c462900bfe9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <TimeCooldown>k__BackingField: 86400
-  <TimeDeadline>k__BackingField: 259200
+  <TimeDeadline>k__BackingField: 172800
   <Rewards>k__BackingField:
   - <RewardType>k__BackingField: 0
     <IconCurrency>k__BackingField: {fileID: 21300000, guid: e0eac6b76fdd842e88a7f8c75ecffaf4, type: 3}
-    <CountCurrency>k__BackingField: 20
+    <CountCurrency>k__BackingField: 1000
   - <RewardType>k__BackingField: 1
     <IconCurrency>k__BackingField: {fileID: 21300000, guid: f59401c5c79564fd1ae3bfb0876455a7, type: 3}
-    <CountCurrency>k__BackingField: 100
+    <CountCurrency>k__BackingField: 2000
   - <RewardType>k__BackingField: 0
-    <IconCurrency>k__BackingField: {fileID: 21300000, guid: a03a39af61d16d94298132cfd5437225, type: 3}
-    <CountCurrency>k__BackingField: 200
+    <IconCurrency>k__BackingField: {fileID: 21300000, guid: 7e082cc2cf2a4433d85e388c6bf94234, type: 3}
+    <CountCurrency>k__BackingField: 1500
   <TimerNewReward>k__BackingField: {fileID: 932748650}
   <MountRootSlotsReward>k__BackingField: {fileID: 1928727020}
   <ContainerSlotRewardPrefab>k__BackingField: {fileID: 7979480310274708407, guid: 7beb3c2245749491c9b4795cc8b9a7e7, type: 3}
@@ -1221,7 +1221,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1791544986}
-  - component: {fileID: 1791544985}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -1229,19 +1228,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1791544985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791544984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 460e3fff037c43aeb983aec15c1df2aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dailyRewardView: {fileID: 1534277131}
 --- !u!4 &1791544986
 Transform:
   m_ObjectHideFlags: 0
@@ -1344,7 +1330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1841700462}
-  - component: {fileID: 1841700461}
+  - component: {fileID: 1841700463}
   m_Layer: 0
   m_Name: Entry_Point
   m_TagString: Untagged
@@ -1352,19 +1338,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1841700461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841700460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 460e3fff037c43aeb983aec15c1df2aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dailyRewardView: {fileID: 1534277131}
 --- !u!4 &1841700462
 Transform:
   m_ObjectHideFlags: 0
@@ -1380,6 +1353,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1841700463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841700460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b5174becb6c2b47a1bdbf0bd8a1a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weeklyRewardView: {fileID: 1534277131}
 --- !u!1 &1928727019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8467303107109977069, guid: 41eca4c3e573342e38d625a28e480b97, type: 3}
       propertyPath: m_Name
-      value: Conteiner Count Wood
+      value: Container Count Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41eca4c3e573342e38d625a28e480b97, type: 3}
