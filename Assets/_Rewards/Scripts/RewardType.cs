@@ -2,7 +2,7 @@ namespace Rewards
 {
     internal enum RewardType
     {
-        Wood,
-        Diamond
+        Wood = 0,
+        Diamond = 1
     }
 }
