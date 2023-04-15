@@ -6,9 +6,9 @@ using Object = UnityEngine.Object;
 
 namespace Rewards
 {
-    internal class DailyRewardController
+    internal class RewardController
     {
-        private readonly DailyRewardView _view;
+        private readonly RewardView _view;
 
         private List<ContainerSlotRewardView> _slots;
         private Coroutine _coroutine;
@@ -17,7 +17,7 @@ namespace Rewards
         private bool _isInitialized;
 
 
-        public DailyRewardController(DailyRewardView view) =>
+        public RewardController(RewardView view) =>
             _view = view;
 
 
@@ -205,5 +205,6 @@ namespace Rewards
                 _slots[i].SetData(reward, countDay, isSelected);
             }
         }
+
     }
 }
