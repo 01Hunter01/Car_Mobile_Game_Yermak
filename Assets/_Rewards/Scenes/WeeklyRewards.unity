@@ -1195,8 +1195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa599240315d90428a0c462900bfe9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TimeCooldown>k__BackingField: 86400
-  <TimeDeadline>k__BackingField: 172800
+  <TimeCooldown>k__BackingField: 604800
+  <TimeDeadline>k__BackingField: 1814400
   <Rewards>k__BackingField:
   - <RewardType>k__BackingField: 0
     <IconCurrency>k__BackingField: {fileID: 21300000, guid: e0eac6b76fdd842e88a7f8c75ecffaf4, type: 3}
@@ -1346,7 +1346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841700460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8972303, y: -0.66621935, z: 528.18787}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
