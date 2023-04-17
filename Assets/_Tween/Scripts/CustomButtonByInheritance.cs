@@ -11,6 +11,9 @@ namespace Tween
         public static string AnimationTypeName => nameof(_animationButtonType);
         public static string CurveEaseName => nameof(_curveEase);
         public static string DurationName => nameof(_duration);
+        public static string StrengthName => nameof(_strength);
+        public static string Vector3Name => nameof(_vector3Custom);
+        
 
         [SerializeField] private RectTransform _rectTransform;
 
@@ -18,6 +21,7 @@ namespace Tween
         [SerializeField] private Ease _curveEase = Ease.Linear;
         [SerializeField] private float _duration = 0.6f;
         [SerializeField] private float _strength = 30f;
+        [SerializeField] private Vector3 _vector3Custom = Vector3.forward;
 
 
         protected override void Awake()
@@ -47,7 +51,7 @@ namespace Tween
             switch (_animationButtonType)
             {
                 case AnimationButtonType.ChangeRotation:
-                    _rectTransform.DOShakeRotation(_duration, Vector3.forward * _strength).SetEase(_curveEase);
+                    _rectTransform.DOShakeRotation(_duration, _vector3Custom * _strength).SetEase(_curveEase);
                     break;
 
                 case AnimationButtonType.ChangePosition:

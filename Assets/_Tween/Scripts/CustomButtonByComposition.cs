@@ -17,6 +17,7 @@ namespace Tween
         [SerializeField] private Ease _curveEase = Ease.Linear;
         [SerializeField] private float _duration = 0.6f;
         [SerializeField] private float _strength = 30f;
+        [SerializeField] private Vector3 _vector3Custom = Vector3.forward;
 
 
         private void OnValidate() => InitComponents();
@@ -40,7 +41,7 @@ namespace Tween
             switch (_animationButtonType)
             {
                 case AnimationButtonType.ChangeRotation:
-                    _rectTransform.DOShakeRotation(_duration, Vector3.forward * _strength).SetEase(_curveEase);
+                    _rectTransform.DOShakeRotation(_duration, _vector3Custom * _strength).SetEase(_curveEase);
                     break;
 
                 case AnimationButtonType.ChangePosition:
