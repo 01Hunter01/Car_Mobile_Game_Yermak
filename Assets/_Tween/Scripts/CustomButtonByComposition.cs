@@ -36,6 +36,7 @@ namespace Tween
         private void OnButtonClick() =>
             ActivateAnimation();
 
+        [ContextMenu(nameof(ActivateAnimation))]
         private void ActivateAnimation()
         {
             switch (_animationButtonType)
@@ -48,6 +49,12 @@ namespace Tween
                     _rectTransform.DOShakeAnchorPos(_duration, Vector2.one * _strength).SetEase(_curveEase);
                     break;
             }
+        }
+        
+        [ContextMenu(nameof(Stop))]
+        private void Stop()
+        {
+            _rectTransform.DOKill(true);
         }
     }
 }

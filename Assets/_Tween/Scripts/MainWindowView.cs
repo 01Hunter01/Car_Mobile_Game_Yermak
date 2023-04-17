@@ -30,8 +30,14 @@ namespace Tween
             _buttonChangeText.onClick.RemoveAllListeners();
         }
 
-
+        [ContextMenu(nameof(ChangeText))]
         private void ChangeText() =>
             _changeableText.DOText(_newText, _textDuration).SetEase(_textEaseType);
+        
+        [ContextMenu(nameof(Stop))]
+        private void Stop()
+        {
+            _changeableText.DOKill(true);
+        }
     }
 }

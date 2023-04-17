@@ -1157,6 +1157,7 @@ MonoBehaviour:
   _curveEase: 1
   _duration: 0.6
   _strength: 30
+  _vector3Custom: {x: 0, y: 0, z: 1}
 --- !u!1 &1288215147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,6 +1781,7 @@ MonoBehaviour:
   _curveEase: 1
   _duration: 0.6
   _strength: 30
+  _vector3Custom: {x: 0, y: 0, z: 1}
 --- !u!1 &1628213505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1911,7 +1913,7 @@ MonoBehaviour:
   _rectTransform: {fileID: 1803062607}
   _animationButtonType: 1
   _curveEase: 1
-  _duration: 0.6
+  _duration: 5
   _strength: 30
   _vector3Custom: {x: 0, y: 0, z: 1}
 --- !u!1 &1913927132
