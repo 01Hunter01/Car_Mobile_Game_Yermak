@@ -18,16 +18,10 @@ internal class EntryPoint : MonoBehaviour
     {
         var profilePlayer = new ProfilePlayer(_initialSettings.InitialSpeedCar, _initialSettings.InitialJumpHeight, _initialSettings.InitialState);
         _mainController = new MainController(_placeForUi, profilePlayer, _analyticsManager, _unityAdsService, _iapService);
-        
-        if(_unityAdsService.IsInitialized) OnAdsInitialized();
-        else _unityAdsService.Initialized.AddListener(OnAdsInitialized);
     }
 
     private void OnDestroy()
-    {
-        _unityAdsService.Initialized.RemoveListener(OnAdsInitialized);
+    { 
         _mainController.Dispose();
     }
-
-    private void OnAdsInitialized() => _unityAdsService.InterstitialPlayer.Play();
 }

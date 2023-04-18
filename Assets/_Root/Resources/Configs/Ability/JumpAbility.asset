@@ -15,4 +15,4 @@ MonoBehaviour:
   _itemConfig: {fileID: 11400000, guid: 5c0c7c6172d9b9945b1bef60b50b3061, type: 2}
   <Type>k__BackingField: 2
   <Projectile>k__BackingField: {fileID: 0}
-  <Value>k__BackingField: 500
+  <Value>k__BackingField: 300
