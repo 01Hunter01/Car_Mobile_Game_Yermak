@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Tween.Examples
+namespace Tool.Tween.Examples.Lerp
 {
     internal enum RatioConversion
     {

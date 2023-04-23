@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace Tween
+namespace Tool.Tween
 {
     [RequireComponent(typeof(RectTransform))]
-    public class CustomButtonByInheritance : Button
+    public class CustomButton_Obsolete : Button
     {
         public static string AnimationTypeName => nameof(_animationButtonType);
         public static string CurveEaseName => nameof(_curveEase);

@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Tween.Examples
+namespace _Root.Scripts.Tool.Tween.Examples.DOTween
 {
     [RequireComponent(typeof(Renderer))]
     internal class TweenCubeColor : MonoBehaviour

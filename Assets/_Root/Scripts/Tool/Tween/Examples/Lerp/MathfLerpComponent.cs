@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace Tween.Examples
+namespace Tool.Tween.Examples.Lerp
 {
     internal class MathfLerpComponent : MonoBehaviour
     {

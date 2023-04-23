@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Tween.Examples
+namespace Tool.Tween.Examples.Extensions
 {
     internal class GameObjectExtensionExample : MonoBehaviour
     {

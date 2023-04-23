@@ -1,6 +1,7 @@
+using Tool.Tween.Examples.Lerp;
 using UnityEngine;
 
-namespace Tween.Examples
+namespace Tool.Tween.Examples.Extensions
 {
     internal static class GameObjectExtensions
     {

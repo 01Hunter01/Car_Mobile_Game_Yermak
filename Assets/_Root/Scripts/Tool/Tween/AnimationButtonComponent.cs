@@ -2,11 +2,11 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Tween
+namespace Tool.Tween
 {
     [RequireComponent(typeof(Button))]
     [RequireComponent(typeof(RectTransform))]
-    public class CustomButtonByComposition : MonoBehaviour
+    public class AnimationButtonComponent : MonoBehaviour
     {
         [Header("Components")]
         [SerializeField] private Button _button;

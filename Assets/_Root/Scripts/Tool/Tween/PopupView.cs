@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Tween
+namespace Tool.Tween
 {
     internal class PopupView : MonoBehaviour
     {

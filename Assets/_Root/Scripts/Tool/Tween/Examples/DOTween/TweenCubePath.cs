@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Tween.Examples
+namespace Tool.Tween.Editor
 {
     internal class TweenCubePath : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-namespace Tween
+namespace Tool.Tween
 {
     internal enum AnimationButtonType
     {

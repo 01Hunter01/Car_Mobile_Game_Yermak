@@ -3,9 +3,9 @@ using UnityEditor.UI;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace Tween.Editor
+namespace Tool.Tween.Editor
 {
-    [CustomEditor(typeof(CustomButtonByInheritance))]
+    [CustomEditor(typeof(CustomButton_Obsolete))]
     internal class CustomButtonEditor : ButtonEditor
     {
         private SerializedProperty m_InteractableProperty;
@@ -20,12 +20,12 @@ namespace Tween.Editor
         {
             var root = new VisualElement();
 
-            var animationType = new PropertyField(serializedObject.FindProperty(CustomButtonByInheritance.AnimationTypeName));
-            var curveEase = new PropertyField(serializedObject.FindProperty(CustomButtonByInheritance.CurveEaseName));
-            var duration = new PropertyField(serializedObject.FindProperty(CustomButtonByInheritance.DurationName));
-            var strength = new PropertyField(serializedObject.FindProperty((CustomButtonByInheritance.StrengthName)));
+            var animationType = new PropertyField(serializedObject.FindProperty(CustomButton_Obsolete.AnimationTypeName));
+            var curveEase = new PropertyField(serializedObject.FindProperty(CustomButton_Obsolete.CurveEaseName));
+            var duration = new PropertyField(serializedObject.FindProperty(CustomButton_Obsolete.DurationName));
+            var strength = new PropertyField(serializedObject.FindProperty((CustomButton_Obsolete.StrengthName)));
             var vector3Custom =
-                new PropertyField(serializedObject.FindProperty((CustomButtonByInheritance.Vector3Name)));
+                new PropertyField(serializedObject.FindProperty((CustomButton_Obsolete.Vector3Name)));
 
             var tweenLabel = new Label("Settings Tween");
             var intractableLabel = new Label("Interactable");
