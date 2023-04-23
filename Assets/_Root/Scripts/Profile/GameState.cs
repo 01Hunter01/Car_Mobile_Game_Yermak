@@ -8,6 +8,7 @@ namespace Profile
         Shed = 4,
         Game = 5,
         Fight = 6,
-        DailyReward = 7
+        DailyReward = 7,
+        PauseMenu = 8
     }
 }
