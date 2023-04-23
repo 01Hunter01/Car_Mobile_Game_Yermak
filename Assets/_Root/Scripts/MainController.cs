@@ -1,3 +1,5 @@
+using Features.Fight;
+using Features.Rewards;
 using Features.Shed;
 using Ui;
 using Game;
@@ -18,8 +20,14 @@ internal class MainController : BaseController
 
     private MainMenuController _mainMenuController;
     private SettingsController _settingsController;
-    private ShedContext _shedContext;
     private GameController _gameController;
+    private FightController _fightController;
+    private StartFightController _startFightController;
+    private RewardController _rewardController;
+    private OpenPauseMenuController _openPauseMenuController;
+    private PauseMenuController _pauseMenuController;
+    
+    private ShedContext _shedContext;
     
     public MainController(Transform placeForUi, ProfilePlayer profilePlayer, AnalyticsManager analyticsManager,
         UnityAdsService unityAdsService, IAPService iapService)
@@ -36,13 +44,13 @@ internal class MainController : BaseController
 
     protected override void OnDispose()
     {
-        DisposeControllers();
+        DisposeChildObjects();
         _profilePlayer.CurrentState.UnSubscribeOnChange(OnChangeGameState);
     }
     
     private void OnChangeGameState(GameState state)
     {
-        DisposeControllers();
+        DisposeChildObjects();
         
         switch (state)
         {
@@ -57,17 +65,34 @@ internal class MainController : BaseController
                 _shedContext = new ShedContext(_placeForUi, _profilePlayer);
                 AddContext(_shedContext);
                 break;
+            case GameState.DailyReward:
+                _rewardController = new RewardController(_placeForUi, _profilePlayer);
+                break;
             case GameState.Game:
                 _gameController = new GameController(_placeForUi, _profilePlayer, _analyticsManager);
+                _startFightController = new StartFightController(_placeForUi, _profilePlayer);
+                _openPauseMenuController = new OpenPauseMenuController(_placeForUi, _profilePlayer);
+                break;
+            case GameState.Fight:
+                _fightController = new FightController(_placeForUi, _profilePlayer);
+                break;
+            case GameState.PauseMenu:
+                _pauseMenuController = new PauseMenuController(_placeForUi, _profilePlayer);
                 break;
         }
     }
 
-    private void DisposeControllers()
+    private void DisposeChildObjects()
     {
         _gameController?.Dispose();
-        _shedContext?.Dispose();
         _mainMenuController?.Dispose();
         _settingsController?.Dispose();
+        _fightController?.Dispose();
+        _startFightController?.Dispose();
+        _rewardController?.Dispose();
+        _openPauseMenuController?.Dispose();
+        _pauseMenuController?.Dispose();
+        
+        _shedContext?.Dispose();
     }
 }
