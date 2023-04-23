@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace BattleScripts
+namespace Features.Fight
 {
     internal class PlayerData
     {

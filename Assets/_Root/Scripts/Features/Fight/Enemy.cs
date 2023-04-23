@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BattleScripts
+namespace Features.Fight
 {
     internal interface IEnemy
     {

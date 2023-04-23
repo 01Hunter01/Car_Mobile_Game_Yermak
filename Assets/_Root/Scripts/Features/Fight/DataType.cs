@@ -1,4 +1,4 @@
-namespace BattleScripts
+namespace Features.Fight
 {
     internal enum DataType
     {
