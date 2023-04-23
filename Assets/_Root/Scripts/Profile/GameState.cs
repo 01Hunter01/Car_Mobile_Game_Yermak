@@ -7,6 +7,7 @@ namespace Profile
         Settings = 3,
         Shed = 4,
         Game = 5,
-        Fight = 6
+        Fight = 6,
+        DailyReward = 7
     }
 }

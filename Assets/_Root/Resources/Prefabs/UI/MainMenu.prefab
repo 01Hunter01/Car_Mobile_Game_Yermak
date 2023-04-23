@@ -1902,8 +1902,10 @@ MonoBehaviour:
   _buttonStart: {fileID: 4366383869429741176}
   _buttonShed: {fileID: 4065942248511874463}
   _buttonSettings: {fileID: 2545897048909612714}
-  _buttonWatchVideo: {fileID: 6246594747009138655}
-  _buttonPurchase: {fileID: 1939013406717662461}
+  _buttonAdsReward: {fileID: 6246594747009138655}
+  _buttonBuyProduct: {fileID: 1939013406717662461}
+  _buttonDailyReward: {fileID: 7803554649248834231}
+  _buttonExitGame: {fileID: 3390584418264306487}
 --- !u!1 &6020584808376468506
 GameObject:
   m_ObjectHideFlags: 0

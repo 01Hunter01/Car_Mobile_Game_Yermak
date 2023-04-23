@@ -17,39 +17,25 @@ namespace Features.Shed
     {
         private readonly IShedView _view;
         private readonly ProfilePlayer _profilePlayer;
-        private readonly InventoryContext _inventoryContext;
         private readonly IUpgradeHandlersRepository _upgradeHandlersRepository;
         
         public ShedController(
-            [NotNull] Transform placeForUi,
             [NotNull] IShedView view,
-            [NotNull] IUpgradeHandlersRepository upgradeHandlersRepository,
-            [NotNull] ProfilePlayer profilePlayer)
+            [NotNull] ProfilePlayer profilePlayer,
+            [NotNull] IUpgradeHandlersRepository upgradeHandlersRepository)
         {
-            if (placeForUi == null)
-                throw new ArgumentNullException(nameof(placeForUi));
-            
             _view
                 = view ?? throw new ArgumentNullException(nameof(view));
-
-            _upgradeHandlersRepository
-                = upgradeHandlersRepository ?? throw new ArgumentNullException(nameof(upgradeHandlersRepository));
             
             _profilePlayer
                 = profilePlayer ?? throw new ArgumentNullException(nameof(profilePlayer));
-
-            _inventoryContext = CreateInventoryContext(placeForUi, profilePlayer);
             
+            _upgradeHandlersRepository
+                = upgradeHandlersRepository ?? throw new ArgumentNullException(nameof(upgradeHandlersRepository));
+
             _view.Init(Apply, Back);
         }
-
-        private InventoryContext CreateInventoryContext(Transform placeForUi, ProfilePlayer profilePlayer)
-        {
-            var inventoryContext = new InventoryContext(placeForUi, profilePlayer);
-            AddContext(inventoryContext);
-            return inventoryContext;
-        }
-
+        
         private void Apply()
         {
             _profilePlayer.CurrentCar.Restore();

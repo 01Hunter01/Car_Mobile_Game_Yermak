@@ -1,4 +1,5 @@
 using Features.Fight;
+using Features.Rewards;
 using Features.Shed;
 using Ui;
 using Game;
@@ -22,6 +23,7 @@ internal class MainController : BaseController
     private GameController _gameController;
     private FightController _fightController;
     private StartFightController _startFightController;
+    private RewardController _rewardController;
     
     private ShedContext _shedContext;
     
@@ -61,6 +63,9 @@ internal class MainController : BaseController
                 _shedContext = new ShedContext(_placeForUi, _profilePlayer);
                 AddContext(_shedContext);
                 break;
+            case GameState.DailyReward:
+                _rewardController = new RewardController(_placeForUi, _profilePlayer);
+                break;
             case GameState.Game:
                 _gameController = new GameController(_placeForUi, _profilePlayer, _analyticsManager);
                 _startFightController = new StartFightController(_placeForUi, _profilePlayer);
@@ -78,6 +83,7 @@ internal class MainController : BaseController
         _settingsController?.Dispose();
         _fightController?.Dispose();
         _startFightController?.Dispose();
+        _rewardController?.Dispose();
         
         _shedContext?.Dispose();
     }

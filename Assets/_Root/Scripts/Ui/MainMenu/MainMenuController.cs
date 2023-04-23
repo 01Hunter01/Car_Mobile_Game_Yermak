@@ -26,7 +26,7 @@ namespace Ui
             _iapService = iapService;
 
             _view = LoadView(placeForUi);
-            _view.Init(StartGame, OpenSettings, PlatVideo, BuyItem, OpenShed);
+            _view.Init(StartGame, OpenSettings, PlatVideo, BuyItem, OpenShed, OpenDailyReward, ExitGame);
         }
 
 
@@ -54,7 +54,17 @@ namespace Ui
         {
             _iapService.Buy("extra_coins");
             _analyticsManager.OnPurchase("extra_coins", 1.99m, "USD");
-        } 
+        }
+
+        private void OpenDailyReward() => _profilePlayer.CurrentState.Value = GameState.DailyReward;
+
+        private void ExitGame()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            Application.Quit();
+        }
 
     }
 }
