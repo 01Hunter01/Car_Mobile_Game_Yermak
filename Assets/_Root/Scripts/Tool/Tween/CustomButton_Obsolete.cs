@@ -30,11 +30,7 @@ namespace Tool.Tween
             InitRectTransform();
         }
 
-        protected override void OnValidate()
-        {
-            base.OnValidate();
-            InitRectTransform();
-        }
+        protected new void OnValidate() => InitRectTransform();
 
         private void InitRectTransform() =>
             _rectTransform ??= GetComponent<RectTransform>();

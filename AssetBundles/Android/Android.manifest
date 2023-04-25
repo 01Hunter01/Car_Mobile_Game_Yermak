@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 3742023461
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: task1_bundle
+      Dependencies: {}
