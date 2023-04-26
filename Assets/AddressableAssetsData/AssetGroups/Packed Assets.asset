@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Packed Assets
+  m_EditorClassIdentifier: 
+  m_GroupName: Packed Assets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c1ed5050f900674468ec8c7308adff02
+  m_SerializeEntries:
+  - m_GUID: f59401c5c79564fd1ae3bfb0876455a7
+    m_Address: Assets/_Root/Sprites/Rewards/UI_Graphic_Resource_Gems.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 6c2bc3e2ee0d42e408f6708d91bf0880, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 08f9261d87d13f14ab46b897063ae7d0, type: 2}
+    - {fileID: 11400000, guid: e8430b44fd4f49448aa1f55d3c62a026, type: 2}
