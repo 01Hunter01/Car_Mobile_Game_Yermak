@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: 4b85467570ed11a43bb9b595cc97034b, type: 2}
   - {fileID: 11400000, guid: 9a916742c50beb34c9f1922f81db0d07, type: 2}
-  - {fileID: 11400000, guid: 6a9204913af12b949a82776f4b1397cd, type: 2}
+  - {fileID: 11400000, guid: f3ce283067bba3a489e7888cd9fc6e7f, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -85,6 +85,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - Sprite
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 82dcb519372cff74d8d8fbae295414b7, type: 2}

@@ -1361,6 +1361,7 @@ RectTransform:
   - {fileID: 234304023}
   - {fileID: 146090041}
   - {fileID: 421239360}
+  - {fileID: 2078212925}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1385,12 +1386,48 @@ MonoBehaviour:
   - <NameAssetBundle>k__BackingField: button_round
     <Image>k__BackingField: {fileID: 70806207}
   _changedBeckgroundButton: {fileID: 234304024}
-  _downloadedBackground:
+  _spriteReference:
     m_AssetGUID: f59401c5c79564fd1ae3bfb0876455a7
     m_SubObjectName: UI_Graphic_Resource_Gems
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 0
-  _placeForBackground: {fileID: 421239360}
+  _placeForBackground: {fileID: 2078212925}
   _addBackgroundButton: {fileID: 649149195}
   _removeBackgroundButton: {fileID: 303460103}
+--- !u!1 &2078212924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2078212925}
+  m_Layer: 5
+  m_Name: PlaceForSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2078212925
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078212924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1324883709}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}

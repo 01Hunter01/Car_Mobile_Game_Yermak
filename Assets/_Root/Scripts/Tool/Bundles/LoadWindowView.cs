@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 using Image = UnityEngine.UIElements.Image;
 
 namespace Tool.Bundles
@@ -12,8 +13,9 @@ namespace Tool.Bundles
         [Header("Asset Bundles")]
         [SerializeField] private Button _changedBeckgroundButton;
 
+        
         [Header("Addressables")]
-        [SerializeField] private AssetReference _downloadedBackground;
+        [SerializeField] private AssetReferenceSprite _spriteReference;
         [SerializeField] private RectTransform _placeForBackground;
         [SerializeField] private Button _addBackgroundButton;
         [SerializeField] private Button _removeBackgroundButton;
@@ -24,8 +26,8 @@ namespace Tool.Bundles
         private void Start()
         {
             _changedBeckgroundButton.onClick.AddListener(LoadAssets);
-            _addBackgroundButton.onClick.AddListener(DownloadBackground);
-            _removeBackgroundButton.onClick.AddListener(UnloadBackground);
+            _addBackgroundButton.onClick.AddListener(LoadBackground);
+            _removeBackgroundButton.onClick.AddListener(ReleaseBackground);
         }
 
         private void OnDestroy()
@@ -42,15 +44,16 @@ namespace Tool.Bundles
             StartCoroutine(DownloadAndSetAssetBundles());
         }
 
-        private void DownloadBackground()
+        private void LoadBackground()
         {
-            _addressableBackground = Addressables.InstantiateAsync(_downloadedBackground, _placeForBackground);
-            
+            if (_spriteReference != null)
+                    _spriteReference.InstantiateAsync(_placeForBackground);
+            // _addressableBackground = Addressables.InstantiateAsync(_spriteReference, _placeForBackground);
         }
         
-        private void UnloadBackground()
+        private void ReleaseBackground()
         {
-            Addressables.Release(_addressableBackground);
+            _spriteReference.ReleaseAsset();
         }
     }
 }
