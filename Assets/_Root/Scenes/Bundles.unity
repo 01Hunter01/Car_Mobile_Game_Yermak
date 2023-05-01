@@ -1388,9 +1388,8 @@ MonoBehaviour:
   _changedBeckgroundButton: {fileID: 234304024}
   _spriteReference:
     m_AssetGUID: f59401c5c79564fd1ae3bfb0876455a7
-    m_SubObjectName: UI_Graphic_Resource_Gems
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_SubObjectName: 
+    m_SubObjectType: 
     m_EditorAssetChanged: 0
   _placeForBackground: {fileID: 2078212925}
   _addBackgroundButton: {fileID: 649149195}
