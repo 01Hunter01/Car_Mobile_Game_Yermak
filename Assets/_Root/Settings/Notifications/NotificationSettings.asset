@@ -16,17 +16,29 @@ MonoBehaviour:
   - <Id>k__BackingField: notification_id
     <Name>k__BackingField: Main Channel
     <Description>k__BackingField: It is the main channel!
-    _importance: 4
+    _importance: 3
   <Notifications>k__BackingField:
   - <Id>k__BackingField: notification_id
     <Title>k__BackingField: Game Notification
     <Text>k__BackingField: Hello! It is your first notification!
-    <RepeatType>k__BackingField: 1
+    <RepeatType>k__BackingField: 0
     <FireTime>k__BackingField:
-      <Year>k__BackingField: 2022
-      <Month>k__BackingField: 8
-      <Day>k__BackingField: 18
-      <Hour>k__BackingField: 23
-      <Minute>k__BackingField: 30
+      <Year>k__BackingField: 2023
+      <Month>k__BackingField: 6
+      <Day>k__BackingField: 15
+      <Hour>k__BackingField: 10
+      <Minute>k__BackingField: 0
     <RepeatInterval>k__BackingField:
-      <Seconds>k__BackingField: 30
+      <Seconds>k__BackingField: 0
+  - <Id>k__BackingField: notification_id
+    <Title>k__BackingField: Game Notification
+    <Text>k__BackingField: A new mechanic will be accessed in 5 days! Be in the Game!
+    <RepeatType>k__BackingField: 0
+    <FireTime>k__BackingField:
+      <Year>k__BackingField: 2023
+      <Month>k__BackingField: 6
+      <Day>k__BackingField: 15
+      <Hour>k__BackingField: 11
+      <Minute>k__BackingField: 0
+    <RepeatInterval>k__BackingField:
+      <Seconds>k__BackingField: 0

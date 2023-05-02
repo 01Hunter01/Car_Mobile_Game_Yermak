@@ -1386,7 +1386,7 @@ MonoBehaviour:
   - <NameAssetBundle>k__BackingField: button_round
     <Image>k__BackingField: {fileID: 70806207}
   _changedBeckgroundButton: {fileID: 234304024}
-  _spriteReference:
+  _texture2DReference:
     m_AssetGUID: f59401c5c79564fd1ae3bfb0876455a7
     m_SubObjectName: 
     m_SubObjectType: 

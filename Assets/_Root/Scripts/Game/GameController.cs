@@ -5,6 +5,7 @@ using Game.TapeBackground;
 using Profile;
 using Tool;
 using Services.Analytics;
+using Ui;
 using UnityEngine;
 
 namespace Game
@@ -18,7 +19,8 @@ namespace Game
         private readonly InputGameController _inputGameController;
         private readonly AbilityContext _abilityContext;
         private readonly TapeBackgroundController _tapeBackgroundController;
-        
+        private readonly OpenPauseMenuController _openPauseMenuController;
+
         public GameController(Transform placeForUi, ProfilePlayer profilePlayer, AnalyticsManager analyticsManager)
         {
             _leftMoveDiff = new SubscriptionProperty<float>();
@@ -27,6 +29,7 @@ namespace Game
             _carController = CreateCarController();
             _inputGameController = CreateInputGameController(profilePlayer, _leftMoveDiff, _rightMoveDiff);
             _tapeBackgroundController = CreateTapeBackground(_leftMoveDiff,_rightMoveDiff);
+            _openPauseMenuController = CreateOpenPauseMenuController(placeForUi, profilePlayer);
             
             _abilityContext = CreateAbilityContext(placeForUi, _carController);
 
@@ -64,6 +67,15 @@ namespace Game
             AddContext(abilityContext);
             
             return abilityContext;
+        }
+
+        private OpenPauseMenuController CreateOpenPauseMenuController(Transform placeForUi, ProfilePlayer profilePlayer)
+        {
+            var openPauseMenuController = new OpenPauseMenuController(placeForUi, profilePlayer);
+            AddController(openPauseMenuController);
+
+            return openPauseMenuController;
+           
         }
     }
 }
