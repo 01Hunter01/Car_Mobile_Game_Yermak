@@ -28,7 +28,10 @@ namespace Ui
         {
             _continueButton.onClick.RemoveListener(_continueCache);
             _mainMenuButton.onClick.RemoveListener(_mainMenuCache);
-        } 
+        }
+
+        public void Show() => gameObject.SetActive(true);
+        public void Hide() => gameObject.SetActive(false);
 
 
     }

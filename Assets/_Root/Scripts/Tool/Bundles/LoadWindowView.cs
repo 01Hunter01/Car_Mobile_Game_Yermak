@@ -15,7 +15,7 @@ namespace Tool.Bundles
 
         
         [Header("Addressables")]
-        [SerializeField] private AssetReferenceSprite _spriteReference;
+        [SerializeField] private AssetReferenceTexture2D _texture2DReference;
         [SerializeField] private RectTransform _placeForBackground;
         [SerializeField] private Button _addBackgroundButton;
         [SerializeField] private Button _removeBackgroundButton;
@@ -46,14 +46,13 @@ namespace Tool.Bundles
 
         private void LoadBackground()
         {
-            if (_spriteReference != null)
-                    _spriteReference.InstantiateAsync(_placeForBackground);
-            // _addressableBackground = Addressables.InstantiateAsync(_spriteReference, _placeForBackground);
+            if (_texture2DReference != null)
+                _addressableBackground = Addressables.InstantiateAsync(_texture2DReference, _placeForBackground);
         }
         
         private void ReleaseBackground()
         {
-            _spriteReference.ReleaseAsset();
+            Addressables.ReleaseInstance(_addressableBackground);
         }
     }
 }
